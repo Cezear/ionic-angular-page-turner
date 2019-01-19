@@ -14,7 +14,7 @@
 			<img src="{{ bookInfo.pages[bookInfo.currentPage].image }}">
 			<br>
 
-			<div *ngIf="bookInfo.pages[bookInfo.currentPage].toc;">
+			<div *ngIf="bookInfo.pages[bookInfo.currentPage].toc; else notToc;">
 				<mat-list>
 					<mat-list-item>
 						<button mat-button (click)="setPage(2)">
@@ -38,7 +38,11 @@
 					</mat-list-item>
 				</mat-list>
 			</div>
-			{{ bookInfo.pages[bookInfo.currentPage].content }}
+			<ng-template #notToc>
+				<div>
+					{{ bookInfo.pages[bookInfo.currentPage].content }}
+				</div>
+			</ng-template>
 		</mat-card-content>
 		<mat-card-footer align="center" padding>
 			<div class="navArrows" fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 0.75em;">
