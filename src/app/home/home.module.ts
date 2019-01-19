@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,7 +17,9 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    MatCardModule,
+    MatButtonModule
   ],
   declarations: [HomePage]
 })

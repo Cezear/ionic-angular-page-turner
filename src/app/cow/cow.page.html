@@ -1,0 +1,63 @@
+<ion-header>
+<ion-toolbar>
+<ion-title>cow</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<mat-card (swipe)="swipePage($event)">
+		<mat-card-title align="center">{{ bookInfo.pages[bookInfo.currentPage].chapter }}</mat-card-title>
+		<mat-card-subtitle align="center">{{ bookInfo.pages[bookInfo.currentPage].chapterSub }}</mat-card-subtitle>
+		<mat-divider></mat-divider>
+		<br>
+		<mat-card-content fxLayout="column">
+			<img src="{{ bookInfo.pages[bookInfo.currentPage].image }}">
+			<br>
+
+			<div *ngIf="bookInfo.pages[bookInfo.currentPage].toc;">
+				<mat-list>
+					<mat-list-item>
+						<button mat-button (click)="setPage(2)">
+							{{ bookInfo.pages[2].chapter }}
+						</button>
+					</mat-list-item>
+					<mat-list-item>
+						<button mat-button (click)="setPage(6)">
+							{{ bookInfo.pages[6].chapter }}
+						</button>
+					</mat-list-item>
+					<mat-list-item>
+						<button mat-button (click)="setPage(9)">
+							{{ bookInfo.pages[9].chapter }}
+						</button>
+					</mat-list-item>
+					<mat-list-item>
+						<button mat-button (click)="setPage(11)">
+							{{ bookInfo.pages[11].chapter }}
+						</button>
+					</mat-list-item>
+				</mat-list>
+			</div>
+			{{ bookInfo.pages[bookInfo.currentPage].content }}
+		</mat-card-content>
+		<mat-card-footer align="center" padding>
+			<div class="navArrows" fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 0.75em;">
+				<div>
+					<button mat-icon-button (click)="pageBackward()">
+						<mat-icon>keyboard_arrow_left</mat-icon>
+					</button>
+				</div>
+				<div>
+					<button mat-icon-button (click)="setPage(1)">
+						{{ bookInfo.currentPage + 1 }}
+					</button>
+				</div>
+				<div>
+					<button mat-icon-button (click)="pageForward()">
+						<mat-icon>keyboard_arrow_right</mat-icon>
+					</button>
+				</div>
+			</div>
+		</mat-card-footer>
+	</mat-card>
+</ion-content>

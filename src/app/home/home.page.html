@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Some books
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://beta.ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content padding color="light">
+  <mat-card>
+    <mat-card-title>All About Cows</mat-card-title>
+    <mat-card-subtitle>The first animal picture I saw online</mat-card-subtitle>
+    <img mat-card-img src="../../assets/images/cow-cover.jpg">
+    <mat-card-actions align="end">
+      <button mat-flat-button color="primary" routerLink="/cow">Read</button>
+      <button mat-button>Read Later</button>
+    </mat-card-actions>
+  </mat-card>
 </ion-content>
