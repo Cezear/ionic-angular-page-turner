@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CowBook } from '../cow-book';
-
 @Component({
 	selector: 'app-cow',
 	animations: [
@@ -17,7 +15,8 @@ export class CowPage implements OnInit {
 		pages: null
 	}
 
-	constructor() { }
+	constructor() {
+	}
 
 	ngOnInit() {
 		this.bookInfo.pages = [
@@ -100,12 +99,12 @@ export class CowPage implements OnInit {
 
 	swipePage(event) {
 		// Left
-		if(event.direction == 2 && this.bookInfo.currentPage != this.bookInfo.maxPages) {
+		if(event.direction == 2) {
 			this.pageForward();
 		}
 
 		// Right
-		else if(event.direction == 4 && this.bookInfo.currentPage != 0) {
+		else if(event.direction == 4) {
 			this.pageBackward();
 		}
 
@@ -115,10 +114,16 @@ export class CowPage implements OnInit {
 	}
 
 	pageForward() {
+		if(this.bookInfo.currentPage == this.bookInfo.maxPages)
+			return 1;
+
 		this.bookInfo.currentPage++;
 	}
 
 	pageBackward() {
+		if(this.bookInfo.currentPage == 0)
+			return 1;
+
 		this.bookInfo.currentPage--;
 	}
 
